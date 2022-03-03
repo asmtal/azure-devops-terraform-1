@@ -18,6 +18,10 @@ provider "azurerm" {
 resource "azurerm_resource_group" "example" {
   name     = var.rg_name
   location = var.location
+  tags = {
+    tag1 = "value1"
+    tag2 = "value2"
+  }
 }
 
 # Create a virtual network within the resource group
