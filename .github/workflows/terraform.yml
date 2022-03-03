@@ -66,6 +66,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ${{ env.tf_actions_working_dir }}
 
     steps:
     # Checkout the repository to the GitHub Actions runner
@@ -80,7 +81,6 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      working-directory: ${{ env.tf_actions_working_dir }}
       run: terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
